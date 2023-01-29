@@ -1,8 +1,8 @@
 # DobaerangShop
 
-📌 벽지 쇼핑몰
+- 벽지를 쇼핑하는 사이트
 
-### 기능
+📌 기능
 
 #### 1. 관리자
 
@@ -21,3 +21,18 @@
 
 📌 사용 기술 스택
 
+### Frontend
+
+  - BootStrap
+  
+### Backend
+
+  - Spring Boot
+  - Spring Data JPA
+  - Spring Security
+  - Gradle, Junit
+  
+### DB
+
+  - mariaDB
+  - Flyway
