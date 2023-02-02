@@ -36,4 +36,3 @@
 ### DB
 
   - mariaDB
-  - Flyway
