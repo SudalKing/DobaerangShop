@@ -14,6 +14,8 @@
 - User와 user의 권한을 설정하는 UserService
 
 ### 1. [saveUser] 
+- 기본 권한인 "ROLE_USER"와 함께 User 정보를 저장
+
 ![saveUser](https://user-images.githubusercontent.com/87001865/216394223-f3cf5752-9849-47c4-90ec-c4f8196efbd7.png)
 
 #### - [saveUserTest]
@@ -25,6 +27,8 @@
 <br>
 
 ### 2. [addAuthority] 
+- "ROLE_USER" 이외의 권한을 추가
+
 ![addAuthority](https://user-images.githubusercontent.com/87001865/216616051-345cee75-8b50-4c5e-85e1-58fecbd474db.png)
 
 #### - [addAuthorityTest]
@@ -36,6 +40,8 @@
 <br>
 
 ### 3. [denyUser] 
+- 'enabled' = false 를 통해 유저를 차단
+
 ![denyUser](https://user-images.githubusercontent.com/87001865/216616973-0060f550-946a-40aa-8541-b1c5711df767.png)
 
 #### - [denyUserTest]
