@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Post</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/post.css}">
+</head>
+<body>
+
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a th:href="@{/}" class="nav-link px-2 text-white">Home</a></li>
+          <li><a th:href="@{/}" class="nav-link px-2 text-white">Community</a></li>
+          <li><a th:href="@{/}" class="nav-link px-2 text-white">Product</a></li>
+          <li><a href="#" class="nav-link px-2 text-white disabled">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-white disabled">About</a></li>
+        </ul>
+
+        <div class="text-end">
+          <a th:href="@{/login}" class="btn btn-outline-light me-2" sec:authorize="!isAuthenticated()">Login</a>
+          <a th:href="@{/register}" class="btn btn-outline-light" sec:authorize="!isAuthenticated()">Sign-up</a>
+          <div sec:authorize="isAuthenticated()">
+            <form method="post" th:action="@{/logout}">
+              <button type="submit" class="btn btn-outline-light">LogOut</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>

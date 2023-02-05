@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+
+<body>
+
+<!--Navbar Top Header-->
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" th:replace="fragments/common-header"></header>
+<!--------------------->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <main class="col-md-9 ms-sm-auto me-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <form method="post" th:action="@{/login}">
+                        <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">로그인 이메일</label>
+                            <input class="form-control" id="username" name="username" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">비밀번호</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div th:if="${loginError}">
+                            <span>이메일이나 패스워드가 올바르지 않습니다.</span>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.js}"></script>
+</body>
+
+</html>

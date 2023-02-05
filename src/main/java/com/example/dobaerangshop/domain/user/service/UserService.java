@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -16,9 +17,11 @@ import java.util.HashSet;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -29,8 +32,16 @@ public class UserService implements UserDetailsService {
     }
 
     public void saveUser (User user){
-        userRepository.save(user);
-        addAuthority(user.getUserId(), "ROLE_USER");
+        String encodedPass = passwordEncoder.encode(user.getPassword());
+        User setUser = User.builder()
+                .email(user.getEmail())
+                .password(encodedPass)
+                .enabled(true)
+                .build();
+
+        userRepository.save(setUser);
+
+        addAuthority(setUser.getUserId(), "ROLE_USER");
     }
 
     public void addAuthority(Long userId, String role){

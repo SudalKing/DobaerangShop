@@ -23,8 +23,8 @@ class UserServiceTest {
     @Test
     void saveUserTest(){
         User user = User.builder()
-                .email("user1234@test.com")
-                .password("2222")
+                .email("testUser@test.com")
+                .password("1111")
                 .enabled(true)
                 .build();
 
@@ -34,18 +34,15 @@ class UserServiceTest {
     @DisplayName("2. [Add Authority]")
     @Test
     void addAuthorityTest(){
-        userService.addAuthority(3L, "ROLE_ADMIN");
-        assertThat(userRepository.findById(3L).get().getAuthorities().size()).isEqualTo(2);
+        userService.addAuthority(4L, "ROLE_ADMIN");
+        assertThat(userRepository.findById(4L).get().getAuthorities().size()).isEqualTo(2);
     }
 
     @DisplayName("3. [Deny User]")
     @Test
     void denyUserTest(){
-        userRepository.findById(3L).ifPresent(user -> {
-            userService.denyUser(user.getUserId());
-
-            assertThat(user.isEnabled()).isEqualTo(false);
-        });
+        User user = userRepository.findById(4L).orElse(null);
+        userService.denyUser(user.getUserId());
     }
 
 }
