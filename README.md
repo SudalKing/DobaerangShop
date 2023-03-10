@@ -34,7 +34,8 @@
 
 📌 테이블 설계
 
-![TABLE 설계](https://user-images.githubusercontent.com/87001865/224352442-21d70660-6bef-479c-badb-f5ccd2da4b3b.png)
+![image](https://user-images.githubusercontent.com/87001865/224358167-a2957cd7-91bf-4c4a-b9d5-8420e6dbb390.png)
+
 
 <br>
 
