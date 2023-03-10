@@ -33,6 +33,7 @@
 <br>
 
 📌 테이블 설계
+
 ![TABLE 설계](https://user-images.githubusercontent.com/87001865/224352442-21d70660-6bef-479c-badb-f5ccd2da4b3b.png)
 
 
