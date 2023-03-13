@@ -1,13 +1,16 @@
 package com.example.dobaerangshop.domain.user.controller;
 
-import com.example.dobaerangshop.domain.user.model.User;
+import com.example.dobaerangshop.domain.user.dto.UserDto;
 import com.example.dobaerangshop.domain.user.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
+@Slf4j
 public class UserController {
 
     private final UserService userService;
@@ -29,12 +32,12 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(){
-        return "register";
+        return "/user/register";
     }
 
     @PostMapping("/register")
-    public String register(User user){
-        userService.saveUser(user);
+    public String register(UserDto userDto){
+        userService.saveUser(userDto);
         return "redirect:/";
     }
 

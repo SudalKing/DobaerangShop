@@ -1,10 +1,13 @@
 package com.example.dobaerangshop.domain.user.model;
 
+import com.example.dobaerangshop.domain.order.model.Order;
 import com.example.dobaerangshop.global.listener.BaseEntity;
 import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -20,13 +23,20 @@ public class User extends BaseEntity implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @Column(name = "user_id")
+    private Long id;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders = new ArrayList<>();
 
     @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
     private String password;
+
+    @Embedded
+    private Address address;
 
     @Column(nullable = false)
     private boolean enabled;

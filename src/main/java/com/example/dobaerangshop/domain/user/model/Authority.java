@@ -1,11 +1,7 @@
 package com.example.dobaerangshop.domain.user.model;
 
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
